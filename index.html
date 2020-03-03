@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS</title>
+    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href= "style.css" type="text/css">
+    
+ 
+</head>
+<body>
+    <div class = "text-center">
+        <h1>Заполнение таблицы через REST API</h1>
+    </div>
+    <div class = "text-right ">
+        <button onclick="toggleState()" class="btn btn-success" name="bt">Редактировать таблицу</button>
+    </div>
+    <div class = "wrapper">
+        <div class="container container-table text-right">
+            <div class="row ">
+                <form action= "Untitled-1.html" method = "GET" name ="formtbl"></form>
+                    <table class="table text-center table-striped table-bordered table-sm"  id="table">
+                        <thead>
+                            <th>USERID</th>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>COMPLETED</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </form>
+                    <!--<button onclick="addRow('table')" class="btn btn-success text-center" name="btt">Добавить ячейки</button>
+                    <button onclick="removeRow('table')" class="btn btn-success text-center" name="bnt">Удалить ячейки</button>-->
+            </div>
+        </div>
+    </div>
+   
+<script src="js/script.js"></script>
+<script src='js/tablesort.min.js'></script>
+    <!-- Include sort types you need -->
+<script src='js/tablesort.number.js'></script>
+<script src='js/tablesort.date.js'></script>
+<script>
+    new Tablesort(document.getElementById('table'));
+</script>
+</body>
+</html>
