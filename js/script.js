@@ -36,15 +36,22 @@ function removeRow(id){
 var header = document.querySelector('tbody');
 const requestURL = "https://jsonplaceholder.typicode.com/todos/";
 var request = new XMLHttpRequest();
-  request.open("GET",requestURL);
-  request.responseType = 'json';
+  request.open("GET",requestURL,false);
+  /*request.responseType = 'json';*/
   request.send();
-  request.onload = function() {
-    var todos = request.response;
-    apiRest(todos);
+  var Data = JSON.parse(request.responseText);
+  var userId = true;
+  var id = true;
+  var title = true;
+  var completed = true;
+  var tmp=[];
+  document.getElementById("btn").onclick = function() {
+    /*var todos = request.response;*/
+    apiRest(Data);
   }
 
 function apiRest(jsonObj){
+    header.innerHTML = '';
     for (i = 0; i < jsonObj.length; i++){
       var row = document.createElement("TR");
       var userId = document.createElement ("TD");
@@ -63,11 +70,134 @@ function apiRest(jsonObj){
       row.appendChild(completed);
 
       header.appendChild(row);
+      console.log(header.length);
 
 
 
     }
- 
 
 }
 
+document.getElementById('userId').onclick= function (){
+  if (userId){
+    
+    userId=false
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].userId <Data[right].userId){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+  }
+  else{
+    userId=true 
+    console.log(header.length);
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].userId>Data[right].userId){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+    
+  }
+  apiRest(Data);
+}
+
+document.getElementById('id').onclick= function (){
+  if (id){
+    
+    id=false
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].id <Data[right].id){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+  }
+  else{
+    id=true 
+    console.log(header.length);
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].id>Data[right].id){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+    
+  }
+  apiRest(Data);
+}
+
+document.getElementById('title').onclick= function (){
+  if (title){
+    
+    title=false
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].title <Data[right].title){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+  }
+  else{
+    title=true 
+    console.log(header.length);
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].title>Data[right].title){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+    
+  }
+  apiRest(Data);
+}
+
+document.getElementById('completed').onclick= function (){
+  if (completed){
+    
+    completed=false
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].completed <Data[right].completed){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+  }
+  else{
+    completed=true 
+    console.log(header.length);
+    for (var left=0;left<Data.length-1;left++){
+      for (var right = left+1; right< Data.length;right++){
+        if (Data[left].completed>Data[right].completed){
+          tmp[0]=Data[left];
+          Data[left]=Data[right];
+          Data[right]=tmp[0];
+        }
+      }
+    }
+    
+  }
+  apiRest(Data);
+}

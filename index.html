@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width", initial-scale=1.0>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href= "style.css" type="text/css">
     
@@ -16,6 +17,7 @@
     </div>
     <div class = "text-right ">
         <button onclick="toggleState()" class="btn btn-success" name="bt">Редактировать таблицу</button>
+        <button id="btn" class="btn btn-success text-left" name="bt">Заполнить  таблицу</button>
     </div>
     <div class = "wrapper">
         <div class="container container-table text-right">
@@ -23,10 +25,10 @@
                 <form action= "Untitled-1.html" method = "GET" name ="formtbl"></form>
                     <table class="table text-center table-striped table-bordered table-sm"  id="table">
                         <thead>
-                            <th>USERID</th>
-                            <th>ID</th>
-                            <th>TITLE</th>
-                            <th>COMPLETED</th>
+                            <th id = "userId">USERID <i class="fa fa-fw fa-sort"></i></th>
+                            <th id = "id">ID <i class="fa fa-fw fa-sort"></i></th>
+                            <th id = "title">TITLE <i class="fa fa-fw fa-sort"></i></th>
+                            <th id = "completed">COMPLETED <i class="fa fa-fw fa-sort"></i></th>
                         </thead>
                         <tbody>
                         </tbody>
@@ -39,12 +41,12 @@
     </div>
    
 <script src="js/script.js"></script>
-<script src='js/tablesort.min.js'></script>
-    <!-- Include sort types you need -->
+<!-- <script src='js/tablesort.min.js'></script>
+         Include sort types you need 
 <script src='js/tablesort.number.js'></script>
 <script src='js/tablesort.date.js'></script>
 <script>
     new Tablesort(document.getElementById('table'));
-</script>
+</script>-->
 </body>
 </html>

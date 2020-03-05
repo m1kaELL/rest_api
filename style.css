@@ -58,3 +58,11 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
 }
+
+th {
+	cursor: pointer;
+	cursor:hand;
+	font-weight:bold;
+	text-align:center;
+	vertical-align:middle
+}
